@@ -1,7 +1,7 @@
 [{
     "id": 3,
     "header": "Отлично, ${username}! Чем займемся?",
-    "backgroundPath":"",
+    "backgroundPath": "",
     "arrayOfVariants": [{
         "nextId": 4,
         "variantText": "Пойдем на пробежку"
@@ -17,9 +17,23 @@
     ]
   },
   {
+    "id": 4,
+    "header": "Может, пойдем домой?..",
+    "backgroundPath": "",
+    "arrayOfVariants": [{
+        "nextId": 7,
+        "variantText": "Да, и посмотрим фильм"
+      },
+      {
+        "nextId": 8,
+        "variantText": "Да, и отпразднуем хэллоуин"
+      }
+    ]
+  },
+  {
     "id": 5,
     "header": "Как уютно... Но уже темнеет.",
-    "backgroundPath":"",
+    "backgroundPath": "",
     "arrayOfVariants": [{
         "nextId": 7,
         "variantText": "Пойдем домой и посмотрим фильм"
@@ -31,23 +45,23 @@
     ]
   },
   {
-    "id": 7,
-    "header": "Как тебе фильм?",
-    "backgroundPath":"",
+    "id": 6,
+    "header": "Тебе грустно... Пойдем домой?",
+    "backgroundPath": "",
     "arrayOfVariants": [{
-        "nextId": 9,
-        "variantText": "Мне понравился!"
+        "nextId": 7,
+        "variantText": "Может, посмотрим фильм?"
       },
       {
-        "nextId": 10,
-        "variantText": "Не очень..."
+        "nextId": 8,
+        "variantText": "Да, отпразднуем Хэллоуин"
       }
     ]
-  }
+  },
   {
     "id": 7,
     "header": "Как тебе фильм?",
-    "backgroundPath":"",
+    "backgroundPath": "",
     "arrayOfVariants": [{
         "nextId": 9,
         "variantText": "Мне понравился!"
@@ -57,5 +71,78 @@
         "variantText": "Не очень..."
       }
     ]
+  },
+  {
+    "id": 8,
+    "header": "Получается очень красиво!",
+    "backgroundPath": "",
+    "arrayOfVariants": [{
+        "nextId": 7,
+        "variantText": "Да! Может, посмотрим фильм?"
+      },
+      {
+        "nextId": 11,
+        "variantText": "Да! Давай сделаем костюмы!"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "header": "Отлично! А теперь пора спать...",
+    "backgroundPath": "",
+    "arrayOfVariants": [{
+      "nextId": 14,
+      "variantText": "Да, уже поздно..."
+    }]
+  },
+  {
+    "id": 10,
+    "header": "Жаль... Тогда пойдем спать?",
+    "backgroundPath": "",
+    "arrayOfVariants": [{
+      "nextId": 14,
+      "variantText": "Да, уже поздно..."
+    }]
+  },
+  {
+    "id": 11,
+    "header": "Мне нравится твой костюм.",
+    "backgroundPath": "",
+    "arrayOfVariants": [{
+        "nextId": 12,
+        "variantText": "Твой тоже очень красивый!"
+      },
+      {
+        "nextId": 13,
+        "variantText": "А мне, если честно, не нравится твой..."
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "header": "Спасибо! Ну, пойдем спать?",
+    "backgroundPath": "",
+    "arrayOfVariants": [{
+      "nextId": 14,
+      "variantText": "Да, уже поздно..."
+    }]
+  },
+  {
+    "id": 12,
+    "header": "Ничего, я не в обиде. Пойдем спать?",
+    "backgroundPath": "",
+    "arrayOfVariants": [{
+      "nextId": 14,
+      "variantText": "Да, уже поздно..."
+    }]
+  },
+  {
+    "id": 14,
+    "header": "Спасибо, что поиграли!",
+    "backgroundPath": "",
+    "arrayOfVariants": [{
+      "nextId": 1,
+      "variantText": "Пройти еще раз"
+    }]
   }
 ]
