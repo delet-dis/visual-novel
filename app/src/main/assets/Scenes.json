@@ -1,0 +1,61 @@
+[{
+    "id": 3,
+    "header": "Отлично, ${username}! Чем займемся?",
+    "backgroundPath":"",
+    "arrayOfVariants": [{
+        "nextId": 4,
+        "variantText": "Пойдем на пробежку"
+      },
+      {
+        "nextId": 5,
+        "variantText": "Пойдем в поход"
+      },
+      {
+        "nextId": 6,
+        "variantText": "Погуляем по полю"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "header": "Как уютно... Но уже темнеет.",
+    "backgroundPath":"",
+    "arrayOfVariants": [{
+        "nextId": 7,
+        "variantText": "Пойдем домой и посмотрим фильм"
+      },
+      {
+        "nextId": 8,
+        "variantText": "Пойдем домой и отпразднуем Хэллоуин"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "header": "Как тебе фильм?",
+    "backgroundPath":"",
+    "arrayOfVariants": [{
+        "nextId": 9,
+        "variantText": "Мне понравился!"
+      },
+      {
+        "nextId": 10,
+        "variantText": "Не очень..."
+      }
+    ]
+  }
+  {
+    "id": 7,
+    "header": "Как тебе фильм?",
+    "backgroundPath":"",
+    "arrayOfVariants": [{
+        "nextId": 9,
+        "variantText": "Мне понравился!"
+      },
+      {
+        "nextId": 10,
+        "variantText": "Не очень..."
+      }
+    ]
+  }
+]
