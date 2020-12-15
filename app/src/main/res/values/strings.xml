@@ -1,3 +1,4 @@
 <resources>
-  <string name="app_name">Vusial Novel</string>
+  <string name="appName">Vusial Novel</string>
+  <string name="novelName">Моя визуальная новелла</string>
 </resources>

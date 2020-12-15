@@ -6,13 +6,34 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
-  <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:text="Hello World!"
-          app:layout_constraintBottom_toBottomOf="parent"
-          app:layout_constraintLeft_toLeftOf="parent"
-          app:layout_constraintRight_toRightOf="parent"
-          app:layout_constraintTop_toTopOf="parent" />
+  <ImageView
+      android:id="@+id/imageView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:scaleType="fitXY"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/starting_background" />
 
+  <TextView
+      android:id="@+id/novelName"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="175dp"
+      android:background="@color/secondaryColor"
+      android:fontFamily="@font/quattrocento_sans"
+      android:paddingStart="16dp"
+      android:paddingTop="11dp"
+      android:paddingEnd="16dp"
+      android:paddingBottom="11dp"
+      android:text="@string/novelName"
+      android:textAlignment="center"
+      android:textColor="@color/fontColor"
+      android:textSize="36sp"
+      android:textStyle="normal"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
