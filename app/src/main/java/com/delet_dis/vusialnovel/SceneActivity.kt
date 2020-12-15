@@ -3,6 +3,7 @@ package com.delet_dis.vusialnovel
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
@@ -57,8 +58,10 @@ class SceneActivity : AppCompatActivity() {
           btn.setTextColor(resources.getColor(R.color.fontColor))
           btn.textSize = 17.0f
           btn.text = it.variantText
+          btn.textAlignment = View.TEXT_ALIGNMENT_CENTER
           btn.setOnClickListener {
-            val comeToNextActivity = Intent(this, if(nextId==1)MainActivity::class.java else SceneActivity::class.java)
+            val comeToNextActivity =
+              Intent(this, if (nextId == 1) MainActivity::class.java else SceneActivity::class.java)
             comeToNextActivity.putExtra("currentScene", nextId.toString())
             startActivity(comeToNextActivity)
           }
@@ -69,6 +72,8 @@ class SceneActivity : AppCompatActivity() {
     }
 
   }
+
+  override fun onBackPressed() {}
 
   private fun loadJSONFromAsset(mContext: Context): String? {
     var json: String? = null
