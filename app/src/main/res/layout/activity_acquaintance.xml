@@ -28,7 +28,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
       app:layout_constraintStart_toStartOf="parent"
-      app:srcCompat="@drawable/orange_cat_starting" />
+      app:srcCompat="@drawable/starting_orange_cat" />
 
   <TextView
       android:id="@+id/textHeader"
@@ -54,12 +54,12 @@
       android:layout_width="match_parent"
       android:layout_height="56dp"
       android:layout_marginBottom="80dp"
-      android:background="#FFFFFF"
+      android:background="#E8E8E8"
       android:ems="10"
       android:hint="@string/enterNameHint"
       android:importantForAutofill="no"
       android:includeFontPadding="true"
-      android:inputType="textPersonName"
+      android:inputType="textPersonName|textCapWords"
       android:paddingStart="16dp"
       android:paddingEnd="0dp"
       android:textColor="@android:color/black"
