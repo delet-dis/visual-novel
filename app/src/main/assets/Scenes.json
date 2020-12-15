@@ -19,7 +19,7 @@
   {
     "id": 4,
     "header": "Может, пойдем домой?..",
-    "backgroundPath": "",
+    "backgroundPath": "running_cats",
     "arrayOfVariants": [{
         "nextId": 7,
         "variantText": "Да, и посмотрим фильм"
@@ -33,7 +33,7 @@
   {
     "id": 5,
     "header": "Как уютно... Но уже темнеет.",
-    "backgroundPath": "",
+    "backgroundPath": "campfire_cats",
     "arrayOfVariants": [{
         "nextId": 7,
         "variantText": "Пойдем домой и посмотрим фильм"
@@ -47,7 +47,7 @@
   {
     "id": 6,
     "header": "Тебе грустно... Пойдем домой?",
-    "backgroundPath": "",
+    "backgroundPath": "walking_cats",
     "arrayOfVariants": [{
         "nextId": 7,
         "variantText": "Может, посмотрим фильм?"
@@ -61,7 +61,7 @@
   {
     "id": 7,
     "header": "Как тебе фильм?",
-    "backgroundPath": "",
+    "backgroundPath": "watching_cats",
     "arrayOfVariants": [{
         "nextId": 9,
         "variantText": "Мне понравился!"
@@ -75,7 +75,7 @@
   {
     "id": 8,
     "header": "Получается очень красиво!",
-    "backgroundPath": "",
+    "backgroundPath": "preparing_cats",
     "arrayOfVariants": [{
         "nextId": 7,
         "variantText": "Да! Может, посмотрим фильм?"
@@ -89,7 +89,7 @@
   {
     "id": 9,
     "header": "Отлично! А теперь пора спать...",
-    "backgroundPath": "",
+    "backgroundPath": "watching_cats",
     "arrayOfVariants": [{
       "nextId": 14,
       "variantText": "Да, уже поздно..."
@@ -98,7 +98,7 @@
   {
     "id": 10,
     "header": "Жаль... Тогда пойдем спать?",
-    "backgroundPath": "",
+    "backgroundPath": "watching_cats",
     "arrayOfVariants": [{
       "nextId": 14,
       "variantText": "Да, уже поздно..."
@@ -107,7 +107,7 @@
   {
     "id": 11,
     "header": "Мне нравится твой костюм.",
-    "backgroundPath": "",
+    "backgroundPath": "halloween_cats",
     "arrayOfVariants": [{
         "nextId": 12,
         "variantText": "Твой тоже очень красивый!"
@@ -121,7 +121,7 @@
   {
     "id": 12,
     "header": "Спасибо! Ну, пойдем спать?",
-    "backgroundPath": "",
+    "backgroundPath": "halloween_cats",
     "arrayOfVariants": [{
       "nextId": 14,
       "variantText": "Да, уже поздно..."
@@ -130,7 +130,7 @@
   {
     "id": 13,
     "header": "Ничего, я не в обиде. Пойдем спать?",
-    "backgroundPath": "",
+    "backgroundPath": "halloween_cats",
     "arrayOfVariants": [{
       "nextId": 14,
       "variantText": "Да, уже поздно..."
@@ -139,7 +139,7 @@
   {
     "id": 14,
     "header": "Спасибо, что поиграли!",
-    "backgroundPath": "",
+    "backgroundPath": "starting_background",
     "arrayOfVariants": [{
       "nextId": 1,
       "variantText": "Пройти еще раз"

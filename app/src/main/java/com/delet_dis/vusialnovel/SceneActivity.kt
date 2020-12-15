@@ -58,9 +58,9 @@ class SceneActivity : AppCompatActivity() {
           btn.textSize = 17.0f
           btn.text = it.variantText
           btn.setOnClickListener {
-            val comeToWelcomeActivity = Intent(this, SceneActivity::class.java)
-            comeToWelcomeActivity.putExtra("currentScene", nextId.toString())
-            startActivity(comeToWelcomeActivity)
+            val comeToNextActivity = Intent(this, if(nextId==1)MainActivity::class.java else SceneActivity::class.java)
+            comeToNextActivity.putExtra("currentScene", nextId.toString())
+            startActivity(comeToNextActivity)
           }
           buttonsLayout.addView(btn)
         }
