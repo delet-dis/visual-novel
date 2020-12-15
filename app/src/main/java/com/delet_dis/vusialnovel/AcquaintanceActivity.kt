@@ -10,7 +10,7 @@ class AcquaintanceActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_acquaintance)
 
-    setPlayerName.setOnClickListener {
+    answerVariant.setOnClickListener {
       if (playerName.text.toString().isNotEmpty()) {
         val comeToWelcomeActivity = Intent(this, SceneActivity::class.java)
         comeToWelcomeActivity.putExtra("playerName", playerName.text.toString())

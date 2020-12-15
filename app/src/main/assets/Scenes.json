@@ -1,7 +1,7 @@
 {"scenes":[{
     "id": 3,
     "header": "Отлично, %s! Чем займемся?",
-    "backgroundPath": "",
+    "backgroundPath": "starting_with_cat",
     "arrayOfVariants": [{
         "nextId": 4,
         "variantText": "Пойдем на пробежку"

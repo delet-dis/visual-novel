@@ -26,16 +26,33 @@ class SceneActivity : AppCompatActivity() {
       val jsonObject: JSONObject = jsonArray.getJSONObject(i)
       val id = Integer.parseInt(jsonObject.getString("id"))
       if (id == numberOfScene) {
+
         val convertedElement: JsonElement =
           Gson().fromJson(jsonObject.toString(), JsonElement::class.java)
         processingScene = Gson().fromJson(convertedElement, Scene::class.java)
 
         textHeader.text = processingScene.header
+
+        textHeader.text = if (numberOfScene == 3) intent.getStringExtra("playerName")?.let {
+          processingScene.header.replace(
+            "%s",
+            it
+          )
+        } else processingScene.header
+
+        backgroundImage.setImageResource(
+          resources.getIdentifier(
+            processingScene.backgroundPath,
+            "drawable",
+            packageName
+          )
+        )
       }
     }
 
   }
-  fun loadJSONFromAsset(mContext: Context): String? {
+
+  private fun loadJSONFromAsset(mContext: Context): String? {
     var json: String? = null
     try {
       val `is`: InputStream = mContext.assets.open("Scenes.json")

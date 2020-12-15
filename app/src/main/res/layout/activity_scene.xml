@@ -15,20 +15,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/starting_background" />
-
-  <ImageView
-      android:id="@+id/backgroundImageCat"
-      android:layout_width="0dp"
-      android:layout_height="match_parent"
-      android:layout_marginEnd="110dp"
-      android:contentDescription="@string/backgroundImageDescription"
-      android:scaleType="fitXY"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="@+id/backgroundImage"
-      app:layout_constraintStart_toStartOf="parent"
-      app:srcCompat="@drawable/starting_orange_cat" />
+      app:layout_constraintTop_toTopOf="parent" />
 
   <TextView
       android:id="@+id/textHeader"
@@ -40,7 +27,6 @@
       android:paddingTop="11dp"
       android:paddingEnd="16dp"
       android:paddingBottom="11dp"
-      android:text="@string/catWelcomeTextNamed"
       android:textAlignment="center"
       android:textColor="@color/fontColor"
       android:textSize="17sp"
@@ -49,28 +35,8 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
-  <EditText
-      android:id="@+id/playerName"
-      android:layout_width="match_parent"
-      android:layout_height="56dp"
-      android:layout_marginBottom="80dp"
-      android:background="#FFFFFF"
-      android:ems="10"
-      android:hint="@string/enterNameHint"
-      android:importantForAutofill="no"
-      android:includeFontPadding="true"
-      android:inputType="textPersonName"
-      android:paddingStart="16dp"
-      android:paddingEnd="0dp"
-      android:textColor="@android:color/black"
-      android:textColorHint="#FFFFFF"
-      android:textStyle="italic"
-      app:layout_constraintBottom_toTopOf="@+id/setPlayerName"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent" />
-
   <Button
-      android:id="@+id/setPlayerName"
+      android:id="@+id/answerVariant"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
       android:layout_marginBottom="57dp"
