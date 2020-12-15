@@ -1,7 +1,9 @@
 package com.delet_dis.vusialnovel
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.JsonElement
@@ -47,6 +49,22 @@ class SceneActivity : AppCompatActivity() {
             packageName
           )
         )
+        processingScene.arrayOfVariants.forEach {
+          val nextId = it.nextId
+          val btn = Button(this)
+          btn.setBackgroundColor(resources.getColor(R.color.primaryColor))
+          btn.isAllCaps = false
+          btn.setTextColor(resources.getColor(R.color.fontColor))
+          btn.textSize = 17.0f
+          btn.text = it.variantText
+          btn.setOnClickListener {
+            val comeToWelcomeActivity = Intent(this, SceneActivity::class.java)
+            comeToWelcomeActivity.putExtra("currentScene", nextId.toString())
+            startActivity(comeToWelcomeActivity)
+          }
+          buttonsLayout.addView(btn)
+        }
+
       }
     }
 
