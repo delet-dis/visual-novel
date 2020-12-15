@@ -1,12 +1,14 @@
 package com.delet_dis.vusialnovel
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import kotlinx.android.synthetic.main.activity_scene.*
-import org.json.JSONArray
 import org.json.JSONObject
+import java.io.InputStream
+import java.nio.charset.Charset
 
 
 class SceneActivity : AppCompatActivity() {
@@ -16,7 +18,7 @@ class SceneActivity : AppCompatActivity() {
 
     val numberOfScene = Integer.parseInt(intent.getStringExtra("currentScene"))
 
-    val jsonArray = JSONArray(this.assets.open("Scenes.json"))
+    val jsonArray = JSONObject(loadJSONFromAsset(applicationContext)).getJSONArray("scenes")
 
     var processingScene: Scene
 
@@ -32,11 +34,20 @@ class SceneActivity : AppCompatActivity() {
       }
     }
 
-//    textHeader.text = getString(
-//      R.string.catWelcomeTextNamed,
-//      intent.getStringExtra("playerName")
-//    )
-
+  }
+  fun loadJSONFromAsset(mContext: Context): String? {
+    var json: String? = null
+    try {
+      val `is`: InputStream = mContext.assets.open("Scenes.json")
+      val size: Int = `is`.available()
+      val buffer = ByteArray(size)
+      `is`.read(buffer)
+      `is`.close()
+      json = String(buffer, Charset.forName("UTF-8"))
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+    return json
   }
 }
 
