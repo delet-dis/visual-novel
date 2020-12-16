@@ -1,6 +1,7 @@
 package com.delet_dis.vusialnovel
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_acquaintance.*
@@ -13,7 +14,10 @@ class AcquaintanceActivity : AppCompatActivity() {
     answerVariant.setOnClickListener {
       if (playerName.text.toString().isNotEmpty()) {
         val comeToSceneActivity = Intent(this, SceneActivity::class.java)
-        comeToSceneActivity.putExtra("playerName", playerName.text.toString())
+        val sPref: SharedPreferences = getSharedPreferences("appSettings",MODE_PRIVATE)
+        val ed: SharedPreferences.Editor = sPref.edit()
+        ed.putString("PLAYER_NAME", playerName.text.toString())
+        ed.apply()
         comeToSceneActivity.putExtra("currentScene", "3")
         startActivity(comeToSceneActivity)
         finish()

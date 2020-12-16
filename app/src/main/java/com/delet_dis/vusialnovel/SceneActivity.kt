@@ -26,7 +26,7 @@ class SceneActivity : AppCompatActivity() {
 
     var processingScene: Scene
 
-    val sPref: SharedPreferences = getPreferences(MODE_PRIVATE)
+    val sPref: SharedPreferences = getSharedPreferences("appSettings", MODE_PRIVATE)
     val ed: SharedPreferences.Editor = sPref.edit()
     ed.putString("SAVED_NUMBER_OF_SCENE", numberOfScene.toString())
     ed.apply()
@@ -42,7 +42,7 @@ class SceneActivity : AppCompatActivity() {
 
         textHeader.text = processingScene.header
 
-        textHeader.text = if (numberOfScene == 3) intent.getStringExtra("playerName")?.let {
+        textHeader.text = if (numberOfScene == 3) sPref.getString("PLAYER_NAME", "")?.let {
           processingScene.header.replace(
             "%s",
             it
@@ -67,7 +67,13 @@ class SceneActivity : AppCompatActivity() {
           btn.textAlignment = View.TEXT_ALIGNMENT_CENTER
           btn.setOnClickListener {
             val comeToNextActivity =
-              Intent(this, if (nextId == 1) MainActivity::class.java else SceneActivity::class.java)
+              Intent(
+                this, if (nextId == 1) {
+                  ed.clear()
+                  ed.apply()
+                  MainActivity::class.java
+                } else SceneActivity::class.java
+              )
             comeToNextActivity.putExtra("currentScene", nextId.toString())
             startActivity(comeToNextActivity)
             finish()
