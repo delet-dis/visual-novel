@@ -16,6 +16,7 @@ class AcquaintanceActivity : AppCompatActivity() {
         comeToWelcomeActivity.putExtra("playerName", playerName.text.toString())
         comeToWelcomeActivity.putExtra("currentScene", "3")
         startActivity(comeToWelcomeActivity)
+        finish()
       }
     }
   }

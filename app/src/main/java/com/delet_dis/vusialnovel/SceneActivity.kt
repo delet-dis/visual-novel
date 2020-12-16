@@ -65,6 +65,7 @@ class SceneActivity : AppCompatActivity() {
               Intent(this, if (nextId == 1) MainActivity::class.java else SceneActivity::class.java)
             comeToNextActivity.putExtra("currentScene", nextId.toString())
             startActivity(comeToNextActivity)
+            finish()
           }
           buttonsLayout.addView(btn)
         }
