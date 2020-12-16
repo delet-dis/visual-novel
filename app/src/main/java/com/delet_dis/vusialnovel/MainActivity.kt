@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    var sPref: SharedPreferences = getSharedPreferences("appSettings",MODE_PRIVATE)
+    val sPref: SharedPreferences = getSharedPreferences("appSettings",MODE_PRIVATE)
 
     if(sPref.contains("SAVED_NUMBER_OF_SCENE")){
       val comeToSceneActivity = Intent(this, SceneActivity::class.java)
