@@ -53,7 +53,7 @@ class SceneActivity : AppCompatActivity() {
         processingScene.arrayOfVariants.forEach {
           val nextId = it.nextId
           val btn = Button(this)
-          btn.setBackgroundColor(resources.getColor(R.color.primaryColor))
+          btn.setBackgroundColor(resources.getColor(R.color.secondaryColor))
           btn.isAllCaps = false
           btn.setTextColor(resources.getColor(R.color.fontColor))
           btn.textSize = 17.0f
