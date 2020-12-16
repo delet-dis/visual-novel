@@ -2,9 +2,9 @@ package com.delet_dis.vusialnovel
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
@@ -25,6 +25,11 @@ class SceneActivity : AppCompatActivity() {
     val jsonArray = JSONObject(loadJSONFromAsset(applicationContext)).getJSONArray("scenes")
 
     var processingScene: Scene
+
+    val sPref: SharedPreferences = getPreferences(MODE_PRIVATE)
+    val ed: SharedPreferences.Editor = sPref.edit()
+    ed.putString("SAVED_NUMBER_OF_SCENE", numberOfScene.toString())
+    ed.apply()
 
     for (i in 0 until jsonArray.length()) {
       val jsonObject: JSONObject = jsonArray.getJSONObject(i)
@@ -75,21 +80,23 @@ class SceneActivity : AppCompatActivity() {
 
   }
 
+
   override fun onBackPressed() {}
 
   private fun loadJSONFromAsset(mContext: Context): String? {
     var json: String? = null
     try {
-      val `is`: InputStream = mContext.assets.open("Scenes.json")
-      val size: Int = `is`.available()
+      val inputStream: InputStream = mContext.assets.open("Scenes.json")
+      val size: Int = inputStream.available()
       val buffer = ByteArray(size)
-      `is`.read(buffer)
-      `is`.close()
+      inputStream.read(buffer)
+      inputStream.close()
       json = String(buffer, Charset.forName("UTF-8"))
     } catch (e: Exception) {
       e.printStackTrace()
     }
     return json
   }
+
 }
 

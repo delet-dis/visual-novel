@@ -12,10 +12,10 @@ class AcquaintanceActivity : AppCompatActivity() {
 
     answerVariant.setOnClickListener {
       if (playerName.text.toString().isNotEmpty()) {
-        val comeToWelcomeActivity = Intent(this, SceneActivity::class.java)
-        comeToWelcomeActivity.putExtra("playerName", playerName.text.toString())
-        comeToWelcomeActivity.putExtra("currentScene", "3")
-        startActivity(comeToWelcomeActivity)
+        val comeToSceneActivity = Intent(this, SceneActivity::class.java)
+        comeToSceneActivity.putExtra("playerName", playerName.text.toString())
+        comeToSceneActivity.putExtra("currentScene", "3")
+        startActivity(comeToSceneActivity)
         finish()
       }
     }
