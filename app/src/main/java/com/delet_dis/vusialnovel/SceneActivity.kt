@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
 import com.google.gson.JsonElement
 import kotlinx.android.synthetic.main.activity_scene.*
@@ -52,7 +53,7 @@ class SceneActivity : AppCompatActivity() {
         )
         processingScene.arrayOfVariants.forEach {
           val nextId = it.nextId
-          val btn = Button(this)
+          val btn = MaterialButton(this)
           btn.setBackgroundColor(resources.getColor(R.color.secondaryColor))
           btn.isAllCaps = false
           btn.setTextColor(resources.getColor(R.color.fontColor))
