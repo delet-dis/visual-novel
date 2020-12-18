@@ -5,5 +5,5 @@
   <string name="backgroundImageDescription">Фоновое изображение</string>
   <string name="catWelcomeText">Привет! Меня зовут Кирюша. А тебя?</string>
   <string name="enterNameHint">Введите свое имя</string>
-  <string name="catWelcomeTextNamed">Отлично, %s. Чем займемся?</string>
+  <string name="jsonParsingError">Json parsing error</string>
 </resources>

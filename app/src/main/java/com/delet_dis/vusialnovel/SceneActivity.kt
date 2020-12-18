@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import com.google.gson.Gson
@@ -96,7 +97,7 @@ class SceneActivity : AppCompatActivity() {
       inputStream.close()
       json = String(buffer, Charset.forName("UTF-8"))
     } catch (e: Exception) {
-      e.printStackTrace()
+      Toast.makeText(mContext, getString(R.string.jsonParsingError), Toast.LENGTH_SHORT).show()
     }
     return json
   }
