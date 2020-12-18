@@ -17,7 +17,10 @@ class MainActivity : AppCompatActivity() {
 
     if (sPref.contains(Constants.savedNumberOfScene)) {
       val comeToSceneActivity = Intent(this, SceneActivity::class.java)
-      comeToSceneActivity.putExtra(Constants.currentScene, sPref.getString(Constants.savedNumberOfScene, ""))
+      comeToSceneActivity.putExtra(
+        Constants.currentScene,
+        sPref.getString(Constants.savedNumberOfScene, "")
+      )
       startActivity(comeToSceneActivity)
       finish()
     }

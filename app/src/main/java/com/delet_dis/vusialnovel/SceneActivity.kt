@@ -35,12 +35,9 @@ class SceneActivity : AppCompatActivity() {
       val jsonObject: JSONObject = jsonArray.getJSONObject(i)
       val id = Integer.parseInt(jsonObject.getString("id"))
       if (id == numberOfScene) {
-
         val convertedElement: JsonElement =
           Gson().fromJson(jsonObject.toString(), JsonElement::class.java)
         processingScene = Gson().fromJson(convertedElement, Scene::class.java)
-
-        textHeader.text = processingScene.header
 
         textHeader.text = if (numberOfScene == 3) sPref.getString(Constants.playerName, "")?.let {
           processingScene.header.replace(
@@ -56,15 +53,18 @@ class SceneActivity : AppCompatActivity() {
             packageName
           )
         )
+
         processingScene.arrayOfVariants.forEach {
           val nextId = it.nextId
           val btn = MaterialButton(this)
+
           btn.setBackgroundColor(resources.getColor(R.color.secondaryColor))
           btn.isAllCaps = false
           btn.setTextColor(resources.getColor(R.color.fontColor))
           btn.textSize = 17.0f
           btn.text = it.variantText
           btn.textAlignment = View.TEXT_ALIGNMENT_CENTER
+
           btn.setOnClickListener {
             val comeToNextActivity =
               Intent(
@@ -74,18 +74,16 @@ class SceneActivity : AppCompatActivity() {
                   MainActivity::class.java
                 } else SceneActivity::class.java
               )
+
             comeToNextActivity.putExtra(Constants.currentScene, nextId.toString())
             startActivity(comeToNextActivity)
             finish()
           }
           buttonsLayout.addView(btn)
         }
-
       }
     }
-
   }
-
 
   override fun onBackPressed() {}
 
@@ -103,6 +101,5 @@ class SceneActivity : AppCompatActivity() {
     }
     return json
   }
-
 }
 
