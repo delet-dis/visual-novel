@@ -14,11 +14,11 @@ class AcquaintanceActivity : AppCompatActivity() {
     answerVariant.setOnClickListener {
       if (playerName.text.toString().isNotEmpty()) {
         val comeToSceneActivity = Intent(this, SceneActivity::class.java)
-        val sPref: SharedPreferences = getSharedPreferences("appSettings",MODE_PRIVATE)
+        val sPref: SharedPreferences = getSharedPreferences(Constants.appSettings, MODE_PRIVATE)
         val ed: SharedPreferences.Editor = sPref.edit()
-        ed.putString("PLAYER_NAME", playerName.text.toString())
+        ed.putString(Constants.playerName, playerName.text.toString())
         ed.apply()
-        comeToSceneActivity.putExtra("currentScene", "3")
+        comeToSceneActivity.putExtra(Constants.currentScene, "3")
         startActivity(comeToSceneActivity)
         finish()
       }

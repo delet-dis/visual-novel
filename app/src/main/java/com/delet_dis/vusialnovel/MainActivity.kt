@@ -9,16 +9,15 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
 
 
-
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    val sPref: SharedPreferences = getSharedPreferences("appSettings",MODE_PRIVATE)
+    val sPref: SharedPreferences = getSharedPreferences(Constants.appSettings, MODE_PRIVATE)
 
-    if(sPref.contains("SAVED_NUMBER_OF_SCENE")){
+    if (sPref.contains(Constants.savedNumberOfScene)) {
       val comeToSceneActivity = Intent(this, SceneActivity::class.java)
-      comeToSceneActivity.putExtra("currentScene", sPref.getString("SAVED_NUMBER_OF_SCENE", ""))
+      comeToSceneActivity.putExtra(Constants.currentScene, sPref.getString(Constants.savedNumberOfScene, ""))
       startActivity(comeToSceneActivity)
       finish()
     }

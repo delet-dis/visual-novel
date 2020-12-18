@@ -20,15 +20,15 @@ class SceneActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_scene)
 
-    val numberOfScene = Integer.parseInt(intent.getStringExtra("currentScene"))
+    val numberOfScene = Integer.parseInt(intent.getStringExtra(Constants.currentScene))
 
     val jsonArray = JSONObject(loadJSONFromAsset(applicationContext)).getJSONArray("scenes")
 
     var processingScene: Scene
 
-    val sPref: SharedPreferences = getSharedPreferences("appSettings", MODE_PRIVATE)
+    val sPref: SharedPreferences = getSharedPreferences(Constants.appSettings, MODE_PRIVATE)
     val ed: SharedPreferences.Editor = sPref.edit()
-    ed.putString("SAVED_NUMBER_OF_SCENE", numberOfScene.toString())
+    ed.putString(Constants.savedNumberOfScene, numberOfScene.toString())
     ed.apply()
 
     for (i in 0 until jsonArray.length()) {
@@ -42,7 +42,7 @@ class SceneActivity : AppCompatActivity() {
 
         textHeader.text = processingScene.header
 
-        textHeader.text = if (numberOfScene == 3) sPref.getString("PLAYER_NAME", "")?.let {
+        textHeader.text = if (numberOfScene == 3) sPref.getString(Constants.playerName, "")?.let {
           processingScene.header.replace(
             "%s",
             it
@@ -74,7 +74,7 @@ class SceneActivity : AppCompatActivity() {
                   MainActivity::class.java
                 } else SceneActivity::class.java
               )
-            comeToNextActivity.putExtra("currentScene", nextId.toString())
+            comeToNextActivity.putExtra(Constants.currentScene, nextId.toString())
             startActivity(comeToNextActivity)
             finish()
           }
@@ -92,7 +92,7 @@ class SceneActivity : AppCompatActivity() {
   private fun loadJSONFromAsset(mContext: Context): String? {
     var json: String? = null
     try {
-      val inputStream: InputStream = mContext.assets.open("Scenes.json")
+      val inputStream: InputStream = mContext.assets.open(Constants.scenesFilename)
       val size: Int = inputStream.available()
       val buffer = ByteArray(size)
       inputStream.read(buffer)
