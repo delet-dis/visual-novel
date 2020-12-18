@@ -24,14 +24,13 @@ class SceneActivity : AppCompatActivity() {
 
     val jsonArray = JSONObject(loadJSONFromAsset(applicationContext)).getJSONArray("scenes")
 
-    var processingScene: Scene
-
     val sPref: SharedPreferences = getSharedPreferences(Constants.appSettings, MODE_PRIVATE)
     val ed: SharedPreferences.Editor = sPref.edit()
     ed.putString(Constants.savedNumberOfScene, numberOfScene.toString())
     ed.apply()
 
     for (i in 0 until jsonArray.length()) {
+      var processingScene: Scene
       val jsonObject: JSONObject = jsonArray.getJSONObject(i)
       val id = Integer.parseInt(jsonObject.getString("id"))
       if (id == numberOfScene) {
