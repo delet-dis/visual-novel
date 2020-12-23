@@ -56,10 +56,12 @@ class SceneActivity : AppCompatActivity() {
         processingScene.arrayOfVariants.forEach {
           val nextId = it.nextId
 
-          val inflater = layoutInflater
-
           val button: MaterialButton =
-            inflater.inflate(R.layout.scene_button, sceneConstraintLayout, false) as MaterialButton
+            layoutInflater.inflate(
+              R.layout.scene_button,
+              sceneConstraintLayout,
+              false
+            ) as MaterialButton
           button.text = it.variantText
           button.setOnClickListener {
             val comeToNextActivity =

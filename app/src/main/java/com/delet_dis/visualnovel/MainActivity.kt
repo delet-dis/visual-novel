@@ -13,13 +13,23 @@ class MainActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    val sPref: SharedPreferences = getSharedPreferences(Constants.appSettings, MODE_PRIVATE)
+//    val sPref: SharedPreferences = getSharedPreferences(Constants.appSettings, MODE_PRIVATE)
+//
+//    if (sPref.contains(Constants.savedNumberOfScene)) {
+//      val comeToSceneActivity = Intent(this, SceneActivity::class.java)
+//      comeToSceneActivity.putExtra(
+//        Constants.currentScene,
+//        sPref.getString(Constants.savedNumberOfScene, "")
+//      )
+//      startActivity(comeToSceneActivity)
+//      finish()
+//    }
 
-    if (sPref.contains(Constants.savedNumberOfScene)) {
+    if(SharedPrefs.getValue(applicationContext,Constants.savedNumberOfScene)!==null){
       val comeToSceneActivity = Intent(this, SceneActivity::class.java)
       comeToSceneActivity.putExtra(
         Constants.currentScene,
-        sPref.getString(Constants.savedNumberOfScene, "")
+        SharedPrefs.getValue(applicationContext, Constants.savedNumberOfScene)
       )
       startActivity(comeToSceneActivity)
       finish()
