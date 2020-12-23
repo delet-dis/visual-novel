@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.delet_dis.vusialnovel">
+    package="com.delet_dis.visualnovel">
 
   <application
       android:allowBackup="true"
@@ -8,13 +8,13 @@
       android:label="@string/appName"
       android:roundIcon="@mipmap/ic_launcher_round"
       android:supportsRtl="true"
-      android:theme="@style/Theme.VusialNovel">
-    <activity android:name=".SceneActivity"></activity>
+      android:theme="@style/Theme.VisualNovel.">
+    <activity android:name="com.delet_dis.visualnovel.SceneActivity"></activity>
     <activity
-        android:name=".AcquaintanceActivity"
+        android:name="com.delet_dis.visualnovel.AcquaintanceActivity"
         android:screenOrientation="portrait" />
     <activity
-        android:name=".MainActivity"
+        android:name="com.delet_dis.visualnovel.MainActivity"
         android:screenOrientation="portrait">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />

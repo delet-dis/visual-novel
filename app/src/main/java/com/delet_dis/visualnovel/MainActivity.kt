@@ -1,4 +1,4 @@
-package com.delet_dis.vusialnovel
+package com.delet_dis.visualnovel
 
 import android.content.Intent
 import android.content.SharedPreferences

@@ -1,4 +1,4 @@
-package com.delet_dis.vusialnovel
+package com.delet_dis.visualnovel
 
 object Constants {
   const val appSettings = "APP_SETTINGS"

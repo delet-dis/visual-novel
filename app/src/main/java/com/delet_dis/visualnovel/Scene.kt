@@ -1,4 +1,4 @@
-package com.delet_dis.vusialnovel
+package com.delet_dis.visualnovel
 
 data class Scene(
   val arrayOfVariants: List<ArrayOfVariant>,

@@ -1,10 +1,9 @@
-package com.delet_dis.vusialnovel
+package com.delet_dis.visualnovel
 
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
@@ -56,16 +55,13 @@ class SceneActivity : AppCompatActivity() {
 
         processingScene.arrayOfVariants.forEach {
           val nextId = it.nextId
-          val btn = MaterialButton(this)
 
-          btn.setBackgroundColor(resources.getColor(R.color.secondaryColor))
-          btn.isAllCaps = false
-          btn.setTextColor(resources.getColor(R.color.fontColor))
-          btn.textSize = 17.0f
-          btn.text = it.variantText
-          btn.textAlignment = View.TEXT_ALIGNMENT_CENTER
+          val inflater = layoutInflater
 
-          btn.setOnClickListener {
+          val button: MaterialButton =
+            inflater.inflate(R.layout.scene_button, sceneConstraintLayout, false) as MaterialButton
+          button.text = it.variantText
+          button.setOnClickListener {
             val comeToNextActivity =
               Intent(
                 this, if (nextId == 1) {
@@ -79,13 +75,13 @@ class SceneActivity : AppCompatActivity() {
             startActivity(comeToNextActivity)
             finish()
           }
-          buttonsLayout.addView(btn)
+          buttonsLayout.addView(button)
         }
       }
     }
   }
 
-  override fun onBackPressed() {}
+  override fun onBackPressed() = Unit
 
   private fun loadJSONFromAsset(mContext: Context): String? {
     var json: String? = null
