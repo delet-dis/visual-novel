@@ -20,9 +20,9 @@ class SceneActivity : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_scene)
 
-    val numberOfScene = Integer.parseInt(intent.getStringExtra(Constants.currentScene))
+    val numberOfScene = Integer.parseInt(intent.getStringExtra(Constants.currentScene) ?: "0")
 
-    val jsonArray = JSONObject(loadJSONFromAsset(applicationContext)).getJSONArray("scenes")
+    val jsonArray = JSONObject(loadJSONFromAsset(applicationContext) ?: "{}").getJSONArray("scenes")
 
     val sPref: SharedPreferences = getSharedPreferences(Constants.appSettings, MODE_PRIVATE)
     val ed: SharedPreferences.Editor = sPref.edit()
