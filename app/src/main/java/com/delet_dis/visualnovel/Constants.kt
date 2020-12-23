@@ -6,4 +6,5 @@ object Constants {
   const val currentScene = "CURRENT_SCENE"
   const val playerName = "PLAYER_NAME"
   const val scenesFilename = "Scenes.json"
+  const val separateFlag = "scenes"
 }
