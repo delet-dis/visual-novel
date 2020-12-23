@@ -2,7 +2,6 @@ package com.delet_dis.visualnovel
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -24,10 +23,7 @@ class SceneActivity : AppCompatActivity() {
 
     val jsonArray = JSONObject(loadJSONFromAsset(applicationContext) ?: "{}").getJSONArray("scenes")
 
-    val sPref: SharedPreferences = getSharedPreferences(Constants.appSettings, MODE_PRIVATE)
-    val ed: SharedPreferences.Editor = sPref.edit()
-    ed.putString(Constants.savedNumberOfScene, numberOfScene.toString())
-    ed.apply()
+    SharedPrefs.setValue(applicationContext, Constants.savedNumberOfScene, numberOfScene.toString())
 
     for (i in 0 until jsonArray.length()) {
       var processingScene: Scene
@@ -38,12 +34,15 @@ class SceneActivity : AppCompatActivity() {
           Gson().fromJson(jsonObject.toString(), JsonElement::class.java)
         processingScene = Gson().fromJson(convertedElement, Scene::class.java)
 
-        textHeader.text = if (numberOfScene == 3) sPref.getString(Constants.playerName, "")?.let {
-          processingScene.header.replace(
-            "%s",
-            it
-          )
-        } else processingScene.header
+
+        textHeader.text =
+          if (numberOfScene == 3) SharedPrefs.getValue(applicationContext, Constants.playerName)
+            ?.let {
+              processingScene.header.replace(
+                "%s",
+                it
+              )
+            } else processingScene.header
 
         backgroundImage.setImageResource(
           resources.getIdentifier(
@@ -67,8 +66,7 @@ class SceneActivity : AppCompatActivity() {
             val comeToNextActivity =
               Intent(
                 this, if (nextId == 1) {
-                  ed.clear()
-                  ed.apply()
+                  SharedPrefs.clearValues(applicationContext)
                   MainActivity::class.java
                 } else SceneActivity::class.java
               )
