@@ -6,10 +6,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
-import com.google.gson.Gson
-import com.google.gson.JsonElement
 import kotlinx.android.synthetic.main.activity_scene.*
-import org.json.JSONObject
 import java.io.InputStream
 import java.nio.charset.Charset
 
@@ -26,7 +23,7 @@ class SceneActivity : AppCompatActivity() {
 
     SharedPrefs.setValue(applicationContext, Constants.savedNumberOfScene, numberOfScene.toString())
 
-    val scenes = JsonHelper.parseJson(applicationContext, Constants.separateFlag)
+    val scenes = JSONHelper.parseJSON(applicationContext, Constants.separateFlag)
 
     scenes.forEach { Scene ->
       if(Scene.id==numberOfScene){

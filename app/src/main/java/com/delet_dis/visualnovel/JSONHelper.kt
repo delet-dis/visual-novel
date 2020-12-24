@@ -7,9 +7,9 @@ import org.json.JSONObject
 import java.io.InputStream
 import java.nio.charset.Charset
 
-object JsonHelper {
+object JSONHelper {
 
-  fun parseJson(context: Context, separatorName: String): List<Scene> {
+  fun parseJSON(context: Context, separatorName: String): List<Scene> {
     val jsonArray = JSONObject(loadJSONFromAsset(context) ?: "").getJSONArray(separatorName)
     return Gson().fromJson(
       jsonArray.toString(),
