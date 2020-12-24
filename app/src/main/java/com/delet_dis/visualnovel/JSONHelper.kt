@@ -23,6 +23,7 @@ object JSONHelper {
       val inputStream: InputStream = mContext.assets.open(Constants.scenesFilename)
       val size: Int = inputStream.available()
       val buffer = ByteArray(size)
+
       inputStream.read(buffer)
       inputStream.close()
       json = String(buffer, Charset.forName("UTF-8"))
