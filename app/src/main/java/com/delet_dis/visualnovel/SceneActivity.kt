@@ -21,93 +21,35 @@ class SceneActivity : AppCompatActivity() {
 
     val numberOfScene = Integer.parseInt(intent.getStringExtra(Constants.currentScene) ?: "0")
 
-    val jsonArray =
-      JSONObject(loadJSONFromAsset(applicationContext) ?: "{}").getJSONArray(Constants.separateFlag)
-
-//    val scenes: List<Scene> = Gson().fromJson(
-//      jsonArray.toString(),
-//      mutableListOf<Scene>()::class.java
-//    )
-//
-//    scenes.forEach { Scene ->
-//      if(Scene.id==numberOfScene){
-//
-//        textHeader.text =
-//          if (numberOfScene == 3) SharedPrefs.getValue(applicationContext, Constants.playerName)
-//            ?.let {
-//              Scene.header.replace(
-//                "%s",
-//                it
-//              )
-//            } else Scene.header
-//
-//        backgroundImage.setImageResource(
-//          resources.getIdentifier(
-//            Scene.backgroundPath,
-//            "drawable",
-//            packageName
-//          )
-//        )
-//
-//        Scene.arrayOfVariants.forEach { processingVariant ->
-//          val nextId = processingVariant.nextId
-//
-//          val button: MaterialButton =
-//            layoutInflater.inflate(
-//              R.layout.scene_button,
-//              sceneConstraintLayout,
-//              false
-//            ) as MaterialButton
-//          button.text = processingVariant.variantText
-//          button.setOnClickListener {
-//            val comeToNextActivity =
-//              Intent(
-//                this, if (nextId == 1) {
-//                  SharedPrefs.clearValues(applicationContext)
-//                  MainActivity::class.java
-//                } else SceneActivity::class.java
-//              )
-//
-//            comeToNextActivity.putExtra(Constants.currentScene, nextId.toString())
-//            startActivity(comeToNextActivity)
-//            finish()
-//          }
-//          buttonsLayout.addView(button)
-//        }
-//      }
-//    }
+//    val jsonArray =
+//      JSONObject(loadJSONFromAsset(applicationContext) ?: "{}").getJSONArray(Constants.separateFlag)
 
     SharedPrefs.setValue(applicationContext, Constants.savedNumberOfScene, numberOfScene.toString())
 
-    for (i in 0 until jsonArray.length()) {
-      var processingScene: Scene
-      val jsonObject: JSONObject = jsonArray.getJSONObject(i)
-      val id = Integer.parseInt(jsonObject.getString("id"))
-      if (id == numberOfScene) {
-        val convertedElement: JsonElement =
-          Gson().fromJson(jsonObject.toString(), JsonElement::class.java)
-        processingScene = Gson().fromJson(convertedElement, Scene::class.java)
+    val scenes = JsonHelper.parseJson(applicationContext, Constants.separateFlag)
 
+    scenes.forEach { Scene ->
+      if(Scene.id==numberOfScene){
 
         textHeader.text =
           if (numberOfScene == 3) SharedPrefs.getValue(applicationContext, Constants.playerName)
             ?.let {
-              processingScene.header.replace(
+              Scene.header.replace(
                 "%s",
                 it
               )
-            } else processingScene.header
+            } else Scene.header
 
         backgroundImage.setImageResource(
           resources.getIdentifier(
-            processingScene.backgroundPath,
+            Scene.backgroundPath,
             "drawable",
             packageName
           )
         )
 
-        processingScene.arrayOfVariants.forEach {
-          val nextId = it.nextId
+        Scene.arrayOfVariants.forEach { processingVariant ->
+          val nextId = processingVariant.nextId
 
           val button: MaterialButton =
             layoutInflater.inflate(
@@ -115,7 +57,7 @@ class SceneActivity : AppCompatActivity() {
               sceneConstraintLayout,
               false
             ) as MaterialButton
-          button.text = it.variantText
+          button.text = processingVariant.variantText
           button.setOnClickListener {
             val comeToNextActivity =
               Intent(
@@ -133,6 +75,63 @@ class SceneActivity : AppCompatActivity() {
         }
       }
     }
+
+//    SharedPrefs.setValue(applicationContext, Constants.savedNumberOfScene, numberOfScene.toString())
+
+//    for (i in 0 until jsonArray.length()) {
+//      var processingScene: Scene
+//      val jsonObject: JSONObject = jsonArray.getJSONObject(i)
+//      val id = Integer.parseInt(jsonObject.getString("id"))
+//      if (id == numberOfScene) {
+//        val convertedElement: JsonElement =
+//          Gson().fromJson(jsonObject.toString(), JsonElement::class.java)
+//        processingScene = Gson().fromJson(convertedElement, Scene::class.java)
+//
+//
+//        textHeader.text =
+//          if (numberOfScene == 3) SharedPrefs.getValue(applicationContext, Constants.playerName)
+//            ?.let {
+//              processingScene.header.replace(
+//                "%s",
+//                it
+//              )
+//            } else processingScene.header
+//
+//        backgroundImage.setImageResource(
+//          resources.getIdentifier(
+//            processingScene.backgroundPath,
+//            "drawable",
+//            packageName
+//          )
+//        )
+//
+//        processingScene.arrayOfVariants.forEach {
+//          val nextId = it.nextId
+//
+//          val button: MaterialButton =
+//            layoutInflater.inflate(
+//              R.layout.scene_button,
+//              sceneConstraintLayout,
+//              false
+//            ) as MaterialButton
+//          button.text = it.variantText
+//          button.setOnClickListener {
+//            val comeToNextActivity =
+//              Intent(
+//                this, if (nextId == 1) {
+//                  SharedPrefs.clearValues(applicationContext)
+//                  MainActivity::class.java
+//                } else SceneActivity::class.java
+//              )
+//
+//            comeToNextActivity.putExtra(Constants.currentScene, nextId.toString())
+//            startActivity(comeToNextActivity)
+//            finish()
+//          }
+//          buttonsLayout.addView(button)
+//        }
+//      }
+//    }
   }
 
   override fun onBackPressed() = Unit
