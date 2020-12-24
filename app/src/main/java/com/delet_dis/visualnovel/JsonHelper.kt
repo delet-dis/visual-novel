@@ -9,14 +9,12 @@ import java.nio.charset.Charset
 
 object JsonHelper {
 
-  fun parseJson(context: Context, filename: String): List<Scene> {
-    val jsonArray =
-      JSONObject(loadJSONFromAsset(context) ?: "{}").getJSONArray(filename)
+  fun parseJson(context: Context, separatorName: String): List<Scene> {
+    val jsonArray = JSONObject(loadJSONFromAsset(context) ?: "").getJSONArray(separatorName)
     return Gson().fromJson(
       jsonArray.toString(),
-      mutableListOf<Scene>()::class.java
-    )
-    
+      Array<Scene>::class.java
+    ).toList()
   }
 
   private fun loadJSONFromAsset(mContext: Context): String? {
