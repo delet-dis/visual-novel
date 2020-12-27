@@ -22,13 +22,15 @@ class SceneActivity : AppCompatActivity() {
       if (Scene.id == numberOfScene) {
 
         textHeader.text =
-          if (numberOfScene == 3) SharedPrefs.getValue(applicationContext, Constants.playerName)
-            ?.let {
-              Scene.header.replace(
-                "%s",
-                it
-              )
-            } else Scene.header
+          if (numberOfScene == 3) {
+            SharedPrefs.getValue(applicationContext, Constants.playerName)
+              ?.let {
+                Scene.header.replace(
+                  "%s",
+                  it
+                )
+              }
+          } else Scene.header
 
         backgroundImage.setImageResource(
           resources.getIdentifier(
